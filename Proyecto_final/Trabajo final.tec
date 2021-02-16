@@ -1,0 +1,473 @@
+\documentclass[letterpaper,twocolumn,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[spanish]{babel}
+\usepackage{flushend}
+\usepackage{float}
+\usepackage{soul}
+\usepackage{cite}
+\usepackage{flushend}
+
+\usepackage{balance}
+\usepackage[T1]{fontenc}
+\usepackage[svgnames]{xcolor}
+\usepackage{times} 
+\graphicspath{{figures/}} 
+
+\usepackage{booktabs}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage[font=small,labelfont=bf,justification=justified]{caption}
+\usepackage{amsfonts, amsmath, amsthm, amssymb}
+\usepackage{wrapfig}
+\usepackage{caption}
+\usepackage{filecontents}
+\usepackage{multirow, array}
+\usepackage[document]{ragged2e}
+\usepackage{url}
+\usepackage[sort&compress]{natbib}
+\usepackage{vmargin}
+\usepackage{anysize}
+\usepackage{endnotes}
+
+\textheight=24.3cm 
+\textwidth=19.9cm 
+\topmargin=0.8cm 
+\oddsidemargin=1.0cm 
+
+\begin{document}
+
+\title{\textbf{Movimiento de una carga}} 
+\author{Canseco Carbajal Leonardo $\&$ Romero Gonzalez Luis Angel} 
+
+\maketitle
+
+\justify
+
+\section*{Resumen}
+
+\textbf{Motivaciones y  justificaciones  del proyecto} Si bien es sabido que las propiedades magneticas fueron descubiertas desde hace varios siglos pues se tiene registro que personajes como Tales de Mileto ya hacian referencias a este fenomeno desde la Antiguedad, tenemos que por otro lado la física involucrada en su estudio formal es relativamente reciente pues fue hasta los años 1800 que Hans Christian Oesterd (un pronunciado fisico y quimico danes) a traves de un experimento analizo como un hilo conductor en el cual circulaba una corriente electrica provocaba una perturbacion magnetica a su alrededor y podia mover una aguja magnetica que estaba cerca. Dicho analisis fue la piedra angular para que en años posteriores cientificos de la talla de Maxwell, Faraday o Ampere. En este trabajo se presenta un modelo  que explica el fenómeno del movimento de una carga. Esta hipótesis está basada en la mecánica del medio continuo y fue comparada con mediciones experimentales en aviones obtenidas a lo largo de los años. Los resultados de este trabajo pretenden si bien no enunciar una forma mas rigurosa de explicar la interaccion de una carga con un campo magnetico, si se quiere llegar a una expresion que resulte mas intuitiva y en cierto grado interactiva.  
+
+\section*{Introducción a los origenes del magnetismo}
+
+\textbf{Breve historia del magnetismo}. Históricamente : el nombre de magnetita viene de la ciudad magnesia de Asia menor. y fueron los griego los primeros que tienen testimonios escritos sobre este mineral empezando con Tales de Mileto que describía a la magnetita con propiedades de atraer al hierro.
+
+También Sócrates hablaba de este mineral de color negro explicando ya entonces el fenómeno de inducción magnética.
+
+A la civilización china se les imputa dos hechos relevantes: el descubrimientos del campo magnético terrestre y la invención de la brújula.
+
+Los fenicios utilizaron largamente la brújula en sus viajes comerciales en sus naves.
+
+Cristóbal Colón utilizó la brújula en su viaje al nuevo mundo describiendo cómo la aguja imantada no marca exactamente el norte geográfico sino que existe una “desviación magnética”
+
+Por este hecho quizás sea colon el personaje hispánico más mencionado en los manuales de física.
+
+Oersted describió cómo el paso de la corriente eléctrica a través de un cable conductor desviaba la aguja imantada de una brújula en dirección perpendicular al cable conductor.
+
+Mostrando la existencia de una relación entre electricidad y magnetismo, a partir de este momento aparecería una nueva disciplina; el electromagnetismo.
+
+Ampere explicó que dos corrientes eléctricas con la misma dirección y en hilos paralelos se atraen, mientras que si son de direcciones opuestas se repelen.
+
+Faraday observó que siempre que el imán o la bobina estuvieran en movimiento; se genera corriente eléctrica, fenómeno que posteriormente llamaríamos corriente inducida ; a la vez que vislumbró las líneas de fuerza magnética al esparcir limadura de hierro en un papel colocado sobre un imán.
+
+Maxwell demostró la relación entre las fuerzas eléctricas y magnéticas y descubrió que la luz es precisamente un fenómeno electromagnético.
+
+Hertz descubrió las ondas electromagnéticas y Marconi junto a Tesla supieron utilizarlas para el uso de la “radio”.
+\\
+\\
+La idea  general del proyecto es crear un programa tal que nos permita observar el movimiento de una particula al interactuar con un campo, simultaneamente se tiene como punto de partida que nuestro algoritmo sea lo mas sencillo y general para que el usuario pueda no solo operarlo con facilidad sino que entienda los conceptos utilizados para llegar a la respuesta y de no entender el algoritmo fisico-matematico que conduce a la solucion de su problema pues entonces que a traves de la grafica sea capaz de visualizar lo que sucede en el planteamiento teorico.
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.35]{e.jpg}
+\caption{\small{\textbf{Una de las preguntas mas importantes para el desarrollo cientifico es ¿Por que sucede esto? o ¿Cual es el fundamento etras de dicho fenomeno?.Gracias a este fundamento varias ramas del estudio como la fisica, la biologia y hasta la geografia tuvieron origen. \cite{e.jpg}}}}
+\label{01}
+\end{figure}
+
+\section*{Desarrollo / Métodos y Resultados}
+
+\section*{Campos magneticos}
+
+\textbf{Para comprender de una manera mas completa lo que se quiere exponer con el programa proporcionado, consideramos importante antes explicar de manera teorica algunos conceptos ya que asi el lector podra tener una mejor o al menos una idea mas clara de donde se obtubieron los recursos necesarios para abordar los planteamientos con relacion al movimiento de una particula.}. El campo magnetico puede interpretarse como un campo vectorial que tiene una caracteristica peculiar (al menos para los fines de esta investigacion teorica):
+
+\
+
+El campo solo ejerce fuerzas sobre particulas con carga y que esten en movimiento ya que cuando estan en reposo nuestro campo no imprime sobre ellas ninguna fuerza.
+
+\
+
+Estos campos pueden ser generados por cargas en movimiento o por corrientes que circulan en un conductor. El ejemplo clasico de una fuente capaz de generar un campo magnetico es el iman.
+
+\
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.35]{iman.jpg}
+\caption{\small{\textbf{Los imanes tambien tienen un polo norte y sur, aunque lo rompieras infinitas veces los trozos restantes seguirian teniendo dos polo}. Sea pie de figura \cite{e}}}
+\label{01}
+\end{figure}
+
+Se ha desarrollado un experimento en el cual al poscionar 2 imanes relativamente cerca uno el otro con su polo opuesto respecto al otro y colocamos limadura de hierro en medio de ellos, observamos que este material empezara a agrupasarse formando lo que parece ser lineas curvas.
+
+\
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.35]{campo.jpg}
+\caption{\small{\textbf{Por convencion se ha establecido que las lineas del campo magnetico "salen" del polo Norte e ingresan al Sur}. Sea pie de figura, ademas aqui esta el caso en que las caras de los imanes no son opuestas. \cite{campo.jpg}}}
+\label{01}
+\end{figure}
+
+Ahora, de estas lineas podemos obtener el vector del campo magnetico denotado como $\Vec{B}$ que es tangente a las lineas anterioremente mencionadas y como pudimos ver en el grafico, son muchas lineas del campo por lo que tambien deberian existir gran cantidad de tangentes $\Vec{B}$ a estas, asi que podemos calcular el vector en diferentes localizaciones de estas lineas.
+
+\section*{Influencia del campo en una carga}
+
+\textbf{Ahora sabiendo un poco de teorial general, veremos como es que este fenomeno puede influenciar a otros cuerpos en su comportamiento}. Para abordar este tipo de problemas evitando caer en ambiguedades o escritos que puedan causarle confusion al lector, hemos decidido que para explicar esta seccion partiremos de un ejemplo o cso general y analizaremos las caracteristicas que se presentan.
+
+Entonces imaginemos que tenemos un vector de campo magnetico $\Vec{B}$ y una carga que ingresa al campo con una velocidad (ya que como se menciono anteriormente si dicha particula se encuentra en reposo pues no habria una interaccion que analizar) que tambien resulta ser un vector que lo denominaremos como $\Vec{v}$.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.35]{NUEVO.png}
+\caption{\small{\textbf{En esta imagen nota como la particula que ingresa al campo es el vertice donde ambos vectores coinciden \cite{NUEVO.png}}}}
+\label{01}
+\end{figure}
+
+Una vez comprendido esto, para calcular esta fuerza magnetica que denotamos bajo la siguiente expresion $\Vec{F}_B$ es equivalente al siguiente producto $$\Vec{F}_B = q\Vec{v} \times \Vec{B}$$ 
+Dandole nombre a los factores de forma explicita:
+
+\
+q = El valor relacionado a  la carga de la particula
+
+\
+$\Vec{v}$ = vector velocidad de la particula
+
+\
+$\Vec{B}$ = vector del campo magnetico
+
+\
+
+NOTA IMPORTANTE PARA EL LECTOR; la operacion realizada entre los dos vectores ($\Vec{v} \times \Vec{B}$) es lo que se conoce como producto cruz, esto para evitar malos entendidos o absurdos.
+
+\
+
+\section*{Propiedades de la fuerza magnetica}
+
+\textbf{Esta fuerza al igual que la gravitatoria o la nuclear fuerte y debil tienen sus detalles a los cuales es importante darles un pequeño vistazo pues de omitirlos podriamos llegar a caer en algun tipo de confusion que le dificultara al lector proseguir con la lectura del presente escrito}.
+
+\
+
+Punto 1) Modulos
+
+\
+
+El modulo (tambien conocido como norma o tamaño del vector que no es otra cosa que la raiz de la suma de los componentes del vector al cuadrado  $|x| = \sqrt{x^2 + y^2+...+ z^2}$ valido para n dimensiones) dela fuerza magnetica que se ejerce sobre la particula resulta ser proporcional al $\sin{\theta}$ donde recordemos que $\theta$ era el angulo que se formaba (o el angulo de separacion formado) entre el vector velocidad y el del campo magnetico. Dicho modulo lo representaremos con la simbologia $\Vec{F}_B$ Nota ademas que tiene una forma que nos recuerda al valor absoluto y esto es porque recordando la definicion mas simple de norma, es el tamaño del vector. Entonces como no hay tamaños negativos (o almenos no convencionalmente) y el valor absoluto todo lo vuelve positivo, de ahi nace la relacion entre norma y valor absoluto.
+
+\
+Retomando, dicha norma se obtiene a traves de la siguiente formula $$|\Vec{F}_B| = q \cdot |\Vec{V}| \cdot |\Vec{B}| \cdot \sin(\theta)$$ De donde podemos enunciar los siguientes significados:
+
+\
+$q$ = valor asociado a la carga de la particula
+
+\
+$|\Vec{V}|$ = norma del vector velocidad
+
+\
+$|\Vec{B}|$ = norma del campo magnetico
+
+\
+$\sin(\theta)$ = seno el angulo de separacion entre los vectores del campo magnetico y el de la velocidad
+
+\
+
+NOTA IMPORTANTE PARA EL LECTOR: si bien esta expresion es correcta, si nos detenemos a hacer un analisis un poco mas profundo de las circunstancias, notemos que estamos buscando la norma de un vector asi que por definicion esto tambien lo podemos ver como la raiz de la suma de los componentes al cuadrado, es decir, : $$|\Vec{F}_{B}| = \sqrt{(\Vec{F_{Bx}})^2 + (\Vec{F_{By}})^2 + (\Vec{F_{Bz}})^2}$$
+
+\
+*****Nuevamente, en este caso enparticular seesta tomano laidea de que nuestro campo solo esta definido en 3 dimensiones (por eso tiene 3 componentes x,y,z que representan sus valores en cada eje), pero esto puede generalizarse para campos con n dimensiones.*****
+
+\
+
+Punto 2) Carga paralela al vector magnetico
+
+\
+
+Si por alaguna razon arbitraria nuestra particula se estuviera moviendo de forma paralela al vector del campo magnetico entonces tendras que la fuerza magnetica que se le imprime es nula (valor de cero)  $$\Vec{F_B} = 0$$
+
+\
+Tendremos el mismo resultado cuando nuevamente, el vector velocidad de la particula y el del campo magnetico son paralelos, pero ademas tienen direcciones opuestas
+
+\
+
+Nota: la siguiente propiedad no es tan relevante dentro del proyecto por temas de simplicidad sin embargo igual se enunciara para no dejar una sensacion de vacion al lector.
+
+\
+
+Punto 3) Angulos entre ejes
+
+\
+
+Esta caracteristica enuncia que si el vector de la velociad de la particula forma un angulo $\theta$ distinto del 0 y 180, la fuerza magnetica es perpendicular a los vectores Velocidad de la particula y campo magnetico.
+
+\
+
+\section*{Campo electrico}
+
+Primeramente, un campo electrico de forma general es toda una region de espacio que rodea a un cuerpo que este cargado (a este lo llamaremos la carga fuente) tal que cuando se coloque en dicho espacio una carga de prueba (puede ser positiva o negativa) existiran fuerzas que se imprimiran sobre nuestra particula. 
+
+\
+Al igual que con los campos magneticos, nuestra pregunta ahora deberia ser ¿Como es que estos se forman o bajo que condiciones se crean? Bueno, pues estos campos se generan al rededor de cuanto menos una sola carga (independientemente de si es positiva o negativa).
+Un campo electrico formado por una sola carga luce asi:
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.35]{Cargas3.png}
+\caption{\small{\textbf{Aqui tenemos ambos casos en los cuales se forman en torno a una carga positiva y negativa respectivamente.  \cite{Cargas.png}}}}
+\label{01}
+\end{figure}
+
+\
+
+Si observamos la imagen, nos daremos cuenta  que existen una especie de flechas ques son la representacion grafica de las lineas de nuestro campo magnetico y analogamente a lo expuesto con el campo electrico, se ha establecido por convencion que aquellas lineas que entran lo hacen en las cargas negativas, caso contrario estas lineas salen de la carga positiva.
+
+\
+Ahora para analizar la intereaccion que tienen estos campos con cargas de prueba, discutiremos los siguientes casos:
+
+\
+
+Caso 1)
+
+La carga de prueba esta en un campo formado por una carga negativa. De esta situacion aun podemos sacar subcasos pues dependiendo del signo que nuestra carga de prueba poseea, sera la manera en que se vea afectada ya que si tiene signo opuesto al campo (positivo) esta experiementara una fuerza de atraccion hacia la carga generadora el campo y en cualquier parte de dicho campo se seguiran atrayendo.
+
+\
+Para el otro subcaso en que la carga fuente sea negativa, pero la carga de prueba tenga signo igual (es decir negativo) entonces no habria una atraccion sino una fuerza de repulsion que igualmente se experimentaria en todo el campo.
+
+\
+
+Caso 2)
+
+Ahora supongamos una carga fuente positiva que forma nuestro campo y dentro de este tenemos la existencia de una carga con signo opuesto a la fuente (negativo), entonces existira una fuerza de atraccion que estara prensente en cualquier punto del campo. De manera similar si nuestra carga de prueba fuese positiva (mismo signo que la fuente) entonces habria una fuerza de repulsion que existiria en cualquier punto del campo ya señalado previamente.
+
+\
+
+Observacion importante: estas fuerzas de atraccion y repulsion entre cargas iguales/diferentes es la conocida "atraccion magnetica" que comunmente podemos observar en cuerpos como los imanes que dependiendo el caso pueden atraer otros cuerpos o repeleerlos.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.35]{cargas-electricas1.jpg}
+\caption{\small{\textbf{Cargas de mismo signo se repelen y si tienen diferente se atraen  \cite{cargas-electricas1.jpg}}}}
+\label{01}
+\end{figure}
+
+\
+
+Si ahora retiraramos la carga de prueba del campo nos encontrariamos que en dicha localizacion el campo seguiria presente, de esto mismo se sigue que la intensidad que este tenga depdne de la ubicacion alrededor de la carga fuente. En palabras mas sencillas, dependiendo de la localizacion de nuestra carga de prueba (ya retirada) el campo podria ser mas o menos intenso. A esta intensidad se le denota con la letra $E$.
+
+\
+
+Al igual que con el campo magnetico (como ya habiamos mencionado antes) las lineas el campo electrico tambien se pueden representar mediante graficos o dibujos, pero estas no pueden ser expresadas aleatoriamente ya que deben seguir ciertos requisitos que explicaremos a continuacion:
+
+\
+
+1) Las lineas comienzan en cargas positivas y tienen su final en las cargas negativas.
+
+\
+2) La direccion de dichas linea sera inicada por una punta en el extremo de las mismas y esto es igual al vector $\Vec{E}$.
+
+\
+3) Las lineas de campo no cruzan.
+
+\
+
+Por ultimo, para concluir esta seccion hablaremos acerca de como se calcula la intensidad del campo electrico de la que hemos estado hablando. Para realizar este calculo es preciso utilizar la siguiente formula $$E = K \cdot \frac{Q}{r^2}$$ Los componentes de la anterior expresion son los siguientes:
+
+\
+E = la intensidad el campo electrico en un punto.
+
+\
+Q = valor de la carga fuente
+
+\
+r = distancia de la carga al punto donde se quiere calcular la intensidad del campo
+
+
+\
+K = constante de proporcionalidad (valor aproximado de $9x10^{9}N.m^2/c^2$
+
+
+\section*{Diferencias entre ambas fuerzas}
+
+\textbf{El proposito del trabajo es centrarse en el estudio del campo magnetico para ello es preciso señalar al campo electrico porque mucha gente tiende a confunirlos debio a eso decidimos explicar las carcteristicas decada uno para hacer notar que aunque estan fuertementer relacionados uno con el otro no son lo mismo}.
+
+\
+
+1) En el campo electrico tenemos que el vector de la fuerza electrica $\Vec{F_e}$ actua a lo largo de la direccion del vector campo electrico $\Vec{E}$ mientras que por el otro lado en el campo magnetico, el vector de la fuerza magnetica $\Vec{F_B}$ actua perpendicularmente al vector campo magnetico $\Vec{B}$.
+
+\
+
+Es decir, imaginemos un vector del campo electrico $\Vec{B}$ paralelo a este debe exisitir nuestra carga de prueba y para que sobre esta misma se imprima una fuerza, el vector fuerza magnetica $\Vec{B}$ tambien debe ser paralelo al campo electrico ademas de tener el mismo sentido. En el caso de que esta carga de prueba fuera negativa, la fuerza ejercida sobre esta seria de igual modo paralela a $\Vec{E}$, pero tenria un sentido opuesto al de este vector. Por ello decimos que el vector fuerza electrica actua a lko largo del la direccion del campo magnetico.
+
+\
+A diferencia de este ejemplo, en el campo magnetico $B$ cuando entra una particula con direccion $\Vec{V}$ como ya habiamos expuesto con anterioridad estos 2 vectores forman un angulo de separacion $\theta$, si dicho angulo no era 0 o 180 (que son los casos nulos)  tendrian entonces que sobre la particula se ejerce perpendicularmente una fuerza magnetica a nuestra carga positiva $\Vec{F_B}$ esta fuerza como se dijo es perpendicular, pero en le caso de que la carga de prueba es positiva pues esta fuerza entre comillas apunta hacia arriba (el sentido positivo del eje de las y). Mientras que si consideramos ekl caso analago donde nuestra carga de prueba tiene un signo negativo y cumple el requereimiento de que el valor de $\theta$
+no es ni 0 o 180, tendriamos que esta vezel vector $\Vec{F_B}$ sigue siendo ortogonal, pero esta vez apunta hacia abajo (el sentido negativo del eje y), es decir, invierte su sentido.
+
+\
+
+2) Condiciones para influenciar el movimiento de una carga
+
+\
+
+Como vimos en una seccion anterior, una de  las coniciones funamentales para que en el campo magnetico exista una interaccion entre la particula y el campo, es que en primer lugar nuestra carga este en movimiento de lo contrario no tendremos nada que analizar (o al menos no para nostros que queremos analizar el movmiento) contriamente para el campo electrico esto no es necesario porque la fuerza electrica actua sobre una particula con carga sin importar si esta en un primer momento seencuentra o no en movimiento.
+
+\
+
+Esta diferencia se hace muco mas explicita o tangible si analizamos las dos ecuaciones de ambas fuerzas que son: $$\Vec{F_e} = \Vec{E} \cdot q_0$$ $$\Vec{F_B} = q\Vec{v} \times \Vec{B}$$
+
+Nota como el de la fuerza magnetica si esta en funcion del tiempo mientras que el de la fuerza electrica no depende de este valor porque no siquiera esta dentro de la formula sino unicamente depende de la carga de la particula $q_0$ y del valor del campo $\Vec{B}$.
+
+\
+Por lo que no importa si $v = 0$ o no, porque en cualquier caso $\Vec{F_e} $ no forsozamente sera 0
+
+\
+
+3) El trabajo ****Estas observaciones no forman  parte importante del trabajo, pero por completitutd de la teoria igual se abordara
+
+\
+
+En la fuerza electrica al desplazar la carga prueba se efectua un trabajo mientras que en la fuerza magnetica al hacer lo mismo no se hace ningun trabajo. Vemos que al igual que en el punto 2) es mas facil percatarnos de esta diferencia si observamos las ecuaciones corresponients al trabajo en cada una. $$W = |\Vec{F}||\Vec{d}|\cos{\theta}$$ $$W_{F_B} = |\Vec{F_B}||\Vec{d}|\cos(\theta)$$
+
+\
+
+**********ATENCION: LA SIGUIENTE AFIRMACION ES LA CLAVE PARA ENTENDER LOS RESULTADOS OBTENIDOS EN LA SIMULACION DEL PROYECTO EN PYTHON, EN CASO DE NO ENTENDERLA TE SOLICITAMOS ENCARECIDAMENTE EN RELEERALA HASTA COMPRENDER***********
+
+\
+
+Imaginemos entonces un campo magnetico positivo en el eje z y una particula positiva que ingresa en el con velocidad $\Vec{V}$ ahora la fueza magnetica al ser perpendicular a la velocidad (por definicion) e igual a todos los puntos del campo magnetico hara que la particula describa un movimiento circular. 
+Ademas en cada punto de la trayectoria la velocidad sera tangente y la Fuerza Magnetica estara apuntando hacia el centro (podemos decir que esto se trata de  una fuerza centripeta)
+
+\
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.35]{movimiento.jpg}
+\caption{\small{\textbf{Este es el movimiento que analizaremos en el programa  y el resultado que se espera obtener \cite{movimiento.jpg}}}}
+\label{01}
+\end{figure}
+
+\
+
+Entonces como la particula esta describiendo una trayectoria circular y en cada punto la fuerza magnetica sera perpendicular a la velocidad por lo tanto el angulo que forma es fuerzamagnetica con el desplazamiento es de 90 grados
+
+\
+
+******Regresando a la idea del trabajo teniamos que su formula para el caso del campo magnetico era $$W_{F_B} = |\Vec{F_B}||\Vec{d}|\cos(\theta)$$
+Y en esta ultima parte llegamos a que $\theta = 0$ reemplazamos ese valor en la formula $$W_{F_B} = |\Vec{F_B}||\Vec{d}|\cos(0)$$ Y ahora si evaluamos este valor nos damos cuenta que $\cos{90} = 0$ Reemplazando nuevamente en nuestra expresion
+$$W_{F_B} = |\Vec{F_B}||\Vec{d} \cdot 0 $$ Y sabemos que cualquier numero multiplicado por 0 es igual a cero por lo que el resultado de esta ecuacion es 0 $$W_{F_B} = 0$$
+
+Asi entonces no solo dimos con la idea fundamental que explicara el movimiento esperado en nuestro programa de python sino tambien demostramos que la fuerza magnetica no efectua trabajo cuando se desplaza una particula con carga. (Por eso  es que nuestro $W_{F_B}$ es 0 porque no hay trabajo realizado)
+
+\
+
+Empecemos entonces ahora hablar del proyecto en si. El proyecto tiene como finalidad el analisis de movimiento de una particula que entra en contacto con un campo magnetico con valor en su componente z con el objetivo de resolver el problema seleccionado, comprobar si la teoria expuesta con anterioriad es correcta y lo mas importante hacer que esta representacion grafica del problema sea entendible para el usuario. Para hace el programa mas sencillo/digerible en un primer momento se penso en utilizar como punto de partida las formulas fisica y matematicas conocidas en el bachillerato y la secundaria (que bajo el programa de educacion publica mexicana deben de contemplarse) ya que tienen menor cantidad de variables y en cierta medida son mas faciles de observar.
+
+\
+
+Sin embargo tan pronto como empezamos la investigacion pudimos darnos cuenta que estas ecuaciones no estaban mal, pero para la finalidad el proyecto podrian resultar insufcientes para poder llegar a un resultado que pudiera considerarse satisfactorio. El porque paso esto es algo sencillo de explicar pues las ecuaciones halladas estan pensaas para explicar el movimiento en una o cuanto maximo 2 dimensiones mientras que nosotros queremos expresar a nuestro campo y particula en 3 dimensiones ademas de que dichas funciones tampoco consideraban una variable con respecto al tiempo cosa que si necesitaremos al graficar los puntos del movimiento de nuestra particula esto debido a que nuestra particula no estara fija sino que empezara a describir segun el resultado esperado una circunferencia o cuanto menos una trayectoria eliptica porlo tanto empezamos a tratar de expandir (si se puede decir asi) el concepto de las formulas halladas a otras dimensiones.
+
+
+\
+
+Es entonces que recurrimos escencialmente a 3 formulas que son:
+
+\ 
+La segunda ley de Newton
+$$F = ma$$
+
+\
+La aceleracion en su expresion de derivada $$a = \frac{d\Vec{d}}{dt}$$
+
+\
+La ecuacion de la Fuerza de Lorentz $$Fm = q(Vx X B)$$
+
+\
+
+Sustituyendo la expresion de la aceleracion y haciendo el producto cruz obtenemos las siguientes expresiones:
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.15]{WhatsApp Image 2021-02-11 at 2.38.26 PM (1).jpeg}
+\caption{\small{\textbf{Expresiones con las que partimos \cite{WhatsApp Image 2021-02-11 at 2.38.26 PM (1).jpeg}}}}
+\label{01}
+\end{figure}
+
+Haciendo productos y multiplicaciones podemos llegar a las expresiones que van a determinar la velocidad y la posicion en funcion del tiempo, lo cual si nos ayudara a graficar lo deseado 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.15]{WhatsApp Image 2021-02-11 at 2.38.26 PM.jpeg}
+\caption{\small{\textbf{Expresiones a las que llegamos \cite{WhatsApp Image 2021-02-11 at 2.38.26 PM.jpeg}}}}
+\label{01}
+\end{figure}
+
+
+
+
+
+
+Despues de obtener estas formulas el programa basicamente se compone de la siguiente manera, primero importamos las librerias y funciones que vayamos a necesitar para operarlo de entre ellas podemos destacar mathplotlib parahacer graficos, math para obtener senos y cosenos, raw input que le permite al usario ingresar cadenas de texto.
+
+\
+
+Una vez esta librerias estan importadas, lo que se sigue es definir cuales son los datos que se van a definir entre los que estan la carga, la masa, la posicion de la carga y la del campo magnetico (estos ultimos son arrays), el programa ya les asigna un valor predefinido, pero atravez del comando raw input el usario puede reescribir los valores pero con las coniciones especificadas en cada dato (como que no puede ser 0, que debe tener tres entradas, etc) finalmente el programa como esta reescribiendo los valores con lineas de texto, usamos la funcion para separar los valores (sin contar los espacios) y finalmente se utiliza el codigo len para contar la cantidad de elementos (cuando son arrays) y al detectar que si son 3 elementos (3 dimensiones) convierte las entradas en datos flotantes (numeros) lo analogo se hace con cada dato del ejercicio.
+
+\
+
+Una vez hemos definido ya todas nuestras variables con los datos pertinentes y siguiendo las indicaciones del programa usando la definicion de norma obtenemos la magnitud del vector campo magnetico y la del vector velocidad para asi entonces poder meter dichos datos dentro de nuestras expresiones de movimiento anteriormente vistas.
+
+\
+
+De aqui se divide el problema en 2, la grafica sin animacion y con animacion cuyo principio es basicamente el mismo ya que en ambos casos usamos el linspace para formar un parametro epuntos para graficar, unicamante colocamos de tal manera nuestos valores de posicion en funcion de tiempo de tal manera que cada uno represente la entrada de un nuevo array el cual ira variando en el tiempo y generara tantos puntos como nos indique formando para ambos casos o una grafica sin animacion o una animada.
+Lo que haceque esta ultima se mueva es que usamos una libreria llamada animation de mathplotlib mientras que en laotra solo usamos el clasico plot.
+En ambos casos llegamos a un programa que grafica la trayectoria de nuestra particula y como lo anunciamos hace varias secciones al unir ichos puntos obtenemos una circunferencia.
+
+\section{Bibliografia}
+
+edu13. (2019). Ley de Coulomb. 8/02/21, de unipython Sitio web: https://unipython.com/ley-de-coulomb-ejercicios-con-python/
+
+\
+Villegas Eduardo. (2011). Movimiento. En Modelizacion en python(250-260). Colombia: Colombia.
+
+\
+Cano Juan Luis. (2011). Visualizando lineas de campo. 08/02/21, de pybonacci Sitio web: 
+
+\
+https://pybonacci.org/2012/11/13/visualizando-lineas-de-corriente-en-python-con-matplotlib/
+
+\
+Desconocido. (2020). Campo magnetico. 08/02/21, de Tutores con codigo Sitio web: https://tutoresconcodigo.com/campo-electrico-de-dos-cargas/
+
+\
+Bulacios Juan Pablo. (2019). Prueba python. 10/02/21, de SCRIBD Sitio web: https://es.scribd.com/document/397074744/Prueba-Python
+
+\
+SCIELO MEXICO. (2007). Algoritmo de verlet. 11/02/21, de SciELO Sitio web: scielo.org.mx
+
+\
+Desconocido. (2020). Movimiento de una particula. 05/02/21, de Aulafacil Sitio web: aulafacil.com
+
+
+
+
+
+
+
+
+
+
+\small
+\bibliographystyle{unsrt}
+{\bibliography{Biblio}}
+
+
+\end{document}
+
